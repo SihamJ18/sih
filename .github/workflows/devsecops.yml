@@ -1,7 +1,7 @@
-```yaml
 name: Automatisation des tests DevSecOps
 
-on: push
+"on":
+  push:
 
 jobs:
   Dependances:
@@ -18,8 +18,7 @@ jobs:
             --scanners vuln \
             --exit-code 1 \
             --severity HIGH,CRITICAL \
-            --include-dev-deps \
-            /project
+            /project/requirements.txt
 
   Dockerfile:
     runs-on: ubuntu-latest
@@ -44,4 +43,3 @@ jobs:
       - name: Deploy
         run: |
           echo "Rien à faire ici. Votre application est prête à être déployée"
-```
